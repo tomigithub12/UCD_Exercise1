@@ -4,6 +4,9 @@ import { Kindergarden } from './interfaces/Kindergarden';
 import { StoreService } from './store.service';
 import { Child, ChildResponse } from './interfaces/Child';
 import { CHILDREN_PER_PAGE } from './constants';
+import { Observable } from 'rxjs';
+import { from, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +29,22 @@ export class BackendService {
     });
     }
 
-    public addChildData(child: Child, page:  number) {
+ /*    public addChildData(child: Child, page:  number) {
       this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
         this.getChildren(page);
       })
+    } */
+
+    public addChildData(child: Child, page: number): Observable<void> {
+      return from(this.http.post('http://localhost:5000/childs', child)).pipe(
+        switchMap(async () => this.getChildren(page)),
+        catchError((error) => {
+          console.error('Error during registration:', error);
+          return throwError(error); 
+        })
+      );
     }
+    
 
     public deleteChildData(childId: string, page: number) {
       this.http.delete(`http://localhost:5000/childs/${childId}`).subscribe(_=> {

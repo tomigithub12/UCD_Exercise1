@@ -1,0 +1,26 @@
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  mat-form-field {
+    margin-top: 8px; 
+    margin-bottom: 8px; 
+  }
+  
+  button {
+    margin-top: 8px; 
+    margin-bottom: 8px; 
+  }
+
+.success-snackbar {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .error-snackbar {
+    background-color: #f44336;
+    color: white;
+  }
+  
