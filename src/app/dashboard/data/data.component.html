@@ -36,6 +36,16 @@
     <tr mat-row *matRowDef="let row; columns: ['name', 'kindergarden', 'address', 'age', 'birthDate', 'actions']"></tr>
   </table>
 
-  <div>
+
+  <div class="pagination-container">
+    <button mat-icon-button (click)="navigateToPage(currentPage - 1)" [disabled]="currentPage === 1">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+  <div class="pagination-pages">
     <button mat-button [ngClass]="page == currentPage ? 'active' : ''" (click)="selectPage(page)" *ngFor="let page of returnAllPages() | pagination">{{ page }}</button>
   </div>
+
+  <button mat-icon-button (click)="navigateToPage(currentPage + 1)" [disabled]="currentPage === returnAllPages()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>

@@ -43,6 +43,14 @@ export class DataComponent implements OnInit {
   public cancelRegistration(childId: string) {
     this.backendService.deleteChildData(childId, this.currentPage);
   }
+
+  navigateToPage(targetPage: number) {
+    if (targetPage >= 1 && targetPage <= this.returnAllPages()) {
+      this.selectPageEvent.emit(targetPage);
+      this.backendService.getChildren(targetPage);
+    }
+  }
+  
 }
 
 

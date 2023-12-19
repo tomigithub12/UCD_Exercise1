@@ -13,6 +13,8 @@ import { throwError } from 'rxjs';
 })
 export class AddDataComponent implements OnInit{
 
+  formSubmitted = false;
+
   constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService, private snackBar: MatSnackBar) {
   }
   public addChildForm: any;
@@ -25,7 +27,7 @@ export class AddDataComponent implements OnInit{
       birthDate: [null, Validators.required]
     })
   }
-  
+
 /* 
   onSubmit() {
     if(this.addChildForm.valid) {
@@ -35,6 +37,7 @@ export class AddDataComponent implements OnInit{
   } */
 
   onSubmit() {
+    this.formSubmitted = true;
     if (this.addChildForm.valid) {
       const page = this.currentPage;
       this.backendService.addChildData(this.addChildForm.value, page)
@@ -54,6 +57,8 @@ export class AddDataComponent implements OnInit{
               verticalPosition: 'top',
               panelClass: 'success-snackbar'
             });
+            this.addChildForm.reset();
+            this.formSubmitted = false;
           })
         )
         .subscribe();
