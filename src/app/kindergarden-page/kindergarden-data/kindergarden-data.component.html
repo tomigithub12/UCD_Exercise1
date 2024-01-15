@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>{{ kindergarden?.name }}</h2>
+    <p><strong>Address:</strong> {{ kindergarden?.address }}</p>
+    <p><strong>Operator:</strong> {{ kindergarden?.betreiber }}</p>
+    <p><strong>Type:</strong> {{ kindergarden?.typ === 1 ? 'Private' : 'Public' }}</p>
+    <div class="picture-container">
+        <img [src]="imagepath" alt="Kindergarden Picture">
+      </div>
+  </div>
+  

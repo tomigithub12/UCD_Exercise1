@@ -9,7 +9,8 @@ export class StoreService {
 
   constructor() { }
 
+  public kindergarden: Kindergarden[] = [];
   public kindergardens: Kindergarden[] = [];
-  public children: ChildResponse[] = []
+  public children: ChildResponse[] = [];
   public childrenTotalCount: number = 0;
 }

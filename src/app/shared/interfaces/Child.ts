@@ -4,6 +4,7 @@ export interface Child {
     id: string;
     name: string;
     birthDate: string,
+    entryDate: string,
     kindergardenId: number
   }
 
@@ -11,6 +12,8 @@ export interface Child {
     id: string;
     name: string;
     birthDate: string,
+    entryDate: string,
     kindergarden: Kindergarden,
     kindergardenId: number
+    [key: string]: any;
   }

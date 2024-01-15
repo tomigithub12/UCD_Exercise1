@@ -1,3 +1,18 @@
+<form [formGroup]="kindergardenFilterForm" (ngSubmit)="applyFilter()">
+    <h2>Filter</h2>
+    <mat-form-field>
+      <mat-label>Kindergarden</mat-label>
+      <mat-select formControlName="selectedKindergarten">
+        <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+            {{ kindergarden.name }}, {{ kindergarden.address }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color= "primary" type="submit">Apply Filter</button>
+    <button mat-raised-button color= "accent" type="button" (click)="resetFilter()" class="reset-button">Reset Filter</button>
+  </form>
+
 <app-data [currentPage]="currentPage" (selectPageEvent)="receiveMessage($event)"></app-data>
 <br>
 <app-button [showAddData]="showAddData" (toggleButtonClickEvent)="toggleButtonClicked($event)"></app-button>

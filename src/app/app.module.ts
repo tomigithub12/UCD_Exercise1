@@ -10,6 +10,7 @@ import { AddDataComponent } from './dashboard/add-data/add-data.component';
 import { HeaderComponent } from './header/header.component';
 import { ButtonComponent } from './dashboard/button/button.component';
 import { PaginationPipe } from './dashboard/data/pagination.pipe';
+import { KindergardenComponent } from './kindergarden-page/kindergarden-data/kindergarden-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +19,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     DataComponent,
     HeaderComponent,
     ButtonComponent,
-    PaginationPipe
+    PaginationPipe,
+    KindergardenComponent 
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

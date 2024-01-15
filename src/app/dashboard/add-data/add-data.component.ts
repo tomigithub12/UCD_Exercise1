@@ -25,7 +25,7 @@ export class AddDataComponent implements OnInit{
       name: ['', [Validators.required]],
       kindergardenId: ['', Validators.required],
       birthDate: [null, Validators.required]
-    })
+    });
   }
 
 /* 
@@ -59,6 +59,10 @@ export class AddDataComponent implements OnInit{
             });
             this.addChildForm.reset();
             this.formSubmitted = false;
+            //error state des forms zurücksetzen damit die roten Warning verschwindne
+            Object.keys(this.addChildForm.controls).forEach(key =>{
+            this.addChildForm.controls[key].setErrors(null)
+            });
           })
         )
         .subscribe();
